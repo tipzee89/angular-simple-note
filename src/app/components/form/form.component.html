@@ -1,0 +1,24 @@
+<div *ngIf="noteUpdated" class="alert alert-dismissible alert-success">
+  Note <strong>Updated</strong> Successfully!
+</div>
+
+<div *ngIf="noteAdded" class="alert alert-dismissible alert-success">
+  Note <strong>Added</strong> Successfully!
+</div>
+
+<div *ngIf="noteDeleted" class="alert alert-dismissible alert-success">
+  Note <strong>Deleted</strong> Successfully!
+</div>
+
+<form>
+  <input type="text" class="form-control" name="title" [(ngModel)]="noteItem.title" placeholder="Enter Title" />
+  <textarea name="content" class="form-control" rows="10" cols="5" [(ngModel)]="noteItem.content" placeholder="Enter content here"></textarea>
+  
+  <div class="text-right">
+    <button *ngIf="noteItem.id" type="button" class="btn btn-primary" (click)="clearSelectedId()">Cancel</button>
+    <button *ngIf="noteItem.id" type="button" class="btn btn-success" (click)="updateNote()">Update</button>
+    <button *ngIf="noteItem.id" type="button" class="btn btn-warning" (click)="deleteNote()">Delete</button>
+
+    <button type="submit" class="btn btn-success" *ngIf="!noteItem.id" (click)="addNewNote()">Add</button>
+  </div>
+</form>

@@ -1,0 +1,13 @@
+<div class="col-md-6">
+  <div class="bs-component">
+    
+    <ul class="list-group">
+      <li *ngFor="let item of noteItems" class="list-group-item" [class.active]=" selectedNoteId === item.id ">
+        <a href="#" (click)="setSelectedNoteId( $event, item.id  )">{{ item.title }}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="col-md-6">
+  <app-form></app-form>
+</div>
